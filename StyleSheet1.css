@@ -1,0 +1,10 @@
+﻿
+body{
+    background-color: aqua;
+    font-size: 16px;
+    margin: 32px 6px 6px 2px;
+    padding: 35px 31px 30px 29px;
+    border: 2px solid blue;
+    border-radius: 43px 39px 28px 37px;
+    box-shadow: 5px 8px 9px blue;
+}

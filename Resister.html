@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <br />
+        <h1>Resister</h1>
+        <form>
+
+            First Name:<input type="text" name="first name" maxlength="50" required /> <br />
+
+            Last name:<input type="text" name="last name" required /> <br />
+
+            Password:<input type="password" required maxlength="10" /> <br />
+
+            Email Address:<input type="email" name="email" /> <br />
+
+            Mobile number:<input type="number" min="1" max="10" name="number" /> <br />
+
+            <input type="submit" value="submit" />
+
+            <input type="reset" value="reset" /> <br />
+
+           
+
+            Enter Name :<input type="text" id="name" />
+            <input type="button" value="Save" onclick="saveData()" />
+            <input type="button" value="Read" onclick="readData()" />
+            <input type="button" value="Delete" onclick="removeData()" />
+            <script>
+
+                function saveData() {
+                    var nm = document.getElementById("name").value;
+                    if (sessionStorage) {
+                        sessionStorage.setItem("username", nm);
+                        sessionStorage.setItem("pwd", p);
+                        alert('Success');
+                    }
+                    else {
+                        alert('localStorage not supported');
+                    }
+                }
+
+                function readData() {
+                    if (sessionStorage) {
+                        document.getElementById("name").value = sessionStorage.getItem("username");
+                    }
+                }
+
+                function removeData() {
+                    if (sessionStorage) {
+                        sessionStorage.clear();
+                    }
+                }
+            </script>
+
+        </form>
+</body>
+</html>

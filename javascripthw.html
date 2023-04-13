@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="button" value="Get All Data" onclick="getData()" /><br />
+    Enter Id <input type="text" id="t1" />
+    <input type="button" value="Search" onclick="searchData()" />
+    <br />
+
+    <div id="d1"></div>
+    <script>
+        async function getData() {
+            let promise = new Promise(function (resolve, reject) {
+                let req = new XMLHttpRequest();
+                req.open('GET', "https://dummyjson.com/products");
+                req.onload = function () {
+                 
+                    if (req.status == 200) {
+                        resolve(req.response);
+                    }
+                    else {
+                        reject("Error in the application");
+                    }
+                };
+                req.send();
+            });
+
+            let info2 = await promise;
+            displayAll(info2);
+        }
+
+
+        async function searchData() {
+            let promise2 = new Promise(function (resolve, reject) {
+                let id = document.getElementById("t1").value;
+                var url = "https://dummyjson.com/products" + id.toString();
+                console.log(url);
+                let req2 = new XMLHttpRequest();
+                req2.open('GET', url);
+                req2.onload = function () {
+               
+                    if (req2.status == 200) {
+                        resolve(req2.response);
+                    }
+                    else {
+                        reject("Error in the application");
+                    }
+                };
+                req2.send();
+
+
+            });
+            let info = await promise2;
+            display(info);
+        }
+
+
+        var dt = "";
+         dt="<table border='1'><tr><th>Id</th><th>Title</th><th>description</th><th>price</th></tr>";
+        function display(value)
+        {
+
+            var x = JSON.parse(value);
+            dt += "<tr><td>" + x.Id + "</td><td>" + x.title + "</td><td>" + x.description + "</td><td>" +x.price + "</td></tr>";
+
+
+            dt += "</table>";
+            console.log(dt);
+            console.log(dt);
+            document.getElementById("d1").innerHTML = dt;
+        }
+
+        var data = "";
+        data = "<table border='1'><tr><th>Id</th><th>Title</th><th>description</th><th>price</th></tr>";
+        function displayAll(val) {
+            var list = JSON.parse(val);
+            console.log(list.products);
+            for (var i = 0; i < list.products.length; i++) {
+                data += "<tr><td>" + list.products[i].id + "</td><td>" + list.products[i].title + "</td><td>" + list.products[i].description + "</td><td>"
+                    + list.products[i].price + "</td></tr>";
+
+            }
+            data += "</table>";
+            document.getElementById("d1").innerHTML = data;
+        }
+
+    </script>
+
+</body>
+</html>

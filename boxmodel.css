@@ -1,0 +1,29 @@
+﻿body
+.div1{
+    background-color:aquamarine;
+    position:relative;
+    top:0px;
+    left:40px;
+    width:50%;
+
+}
+.div2{
+    background-color:burlywood;
+    position:relative;
+    top:35px;
+
+}
+p{
+    background-color:lightblue;
+    position:relative;
+    top:0px;
+    left:0px;
+    width:50%;
+
+}
+.div3{
+    background-color:yellow;
+    position:relative;
+    bottom:0px;
+    left:133px;
+}

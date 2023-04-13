@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        p{
+            background-color:yellow;
+            color:red;
+            width:50%;
+            height:30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Hide" id="btn1" />
+    <input type="button" value="Show" id="btn2" />
+    <p>
+        this is my sample in para
+    </p>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+            integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+            crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btn1").click(function () {
+                $("p").hide('clip',2000);
+            });
+
+            $("#btn2").click(function () {
+                $("p").show('bounce',2000).slideUp(3000).slideDown(3000);
+            });
+
+            $('p').mouseenter(function () {
+                $('p').css({
+                    'backgroundColor':'red',
+                    'color': 'yellow',
+                    'fontSize':'18px'
+                });
+            });
+            $('p').mouseleave(function () {
+            $('p').css({'backgroundColor':'yellow','color': 'red','fontSize':'14px' });
+        });
+        });
+    </script>
+
+
+</body>
+</html>
